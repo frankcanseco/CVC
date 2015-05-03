@@ -15,7 +15,7 @@
 @property NSDate* inicio;
 @property NSDate* fin;
 @property NSInteger prof;
-
+@property NSInteger estado;
 @end
 @implementation celda
 @end
@@ -26,6 +26,9 @@
 @property  NSInteger profesion;
 @property NSMutableArray *celdas;
 @property celda* celdaAux;
+@property NSInteger state;
+@property NSInteger order;
+@property NSInteger estado;
 @end
 @implementation ViewController
 - (NSUInteger)supportedInterfaceOrientations
@@ -37,7 +40,8 @@
     self.uvAgrega.hidden = YES;
     self.uvDate.hidden = YES;
     self.celdas = [[NSMutableArray alloc] init];
-    
+    self.state = 0;
+    self.infoCeldaOutlet.hidden = YES;
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -72,6 +76,7 @@
     self.celdaAux.objetivo = self.tfObjetivo.text;
     self.celdaAux.accion = self.tvAccion.text;
     self.celdaAux.indicador = self.tvIndicador.text;
+    self.celdaAux.estado = self.estado;
     [self.celdas addObject:self.celdaAux];
     self.uvAgrega.hidden = YES;
     self.uvDate.hidden = YES;
@@ -86,12 +91,14 @@
     self.fechaIn =[NSDate date];
     self.fechaOut =[NSDate date];
     self.profesion = 0;
+    self.estado = 0;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterShortStyle];
     self.lbFechaIn.text = [dateFormatter stringFromDate:[NSDate date]];
     self.lbFOut.text =  [dateFormatter stringFromDate:[NSDate date]];
     self.lbProfesion.text = @"Profesional";
     [self.btnprof setImage:[UIImage imageNamed:@"Briefcase.png"] forState:UIControlStateNormal];
+    [self.btnEstadoOutlet setImage:[UIImage imageNamed:@"cancelButton.png"] forState:UIControlStateNormal];
     self.uvAgrega.hidden = NO;
     [self.scroll bringSubviewToFront:self.uvAgrega];
 }
@@ -165,7 +172,7 @@
 
     NSDate* hoy = [NSDate date];
     for (UIView *subview in self.scroll.subviews) {
-        if (subview != self.uvAgrega&& subview != self.uvDate)
+        if (subview != self.uvAgrega&& subview != self.uvDate&&subview!= self.infoCeldaOutlet.superview)
             [subview removeFromSuperview];
     }
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -180,17 +187,21 @@
     for (i = 0; i < self.celdas.count; i++)
     {
         NSInteger p =[self.celdas[i] prof];
-        UIView *v = [[UIView alloc]init];
+        NSInteger e = [self.celdas[i] estado];
+        UIButton *v = [[UIButton alloc]init];
         UILabel *lb1 = [[UILabel alloc]init];
         UILabel *lb2 = [[UILabel alloc]init];
         UILabel *lb3 = [[UILabel alloc]init];
         UIImage *img;
+        UIImage *img2;
+
         UIView *v2 = [[UIView alloc]init];
-        v.backgroundColor = [UIColor greenColor];
+        UIView *v3 = [[UIView alloc]init];
         lb1.text = [self.celdas[i] meta];
         lb2.text = [dateFormatter stringFromDate:[self.celdas[i] inicio]];
         lb3.text = [dateFormatter stringFromDate:[self.celdas[i] fin]];
         v2.frame =CGRectMake(xCoord+240, 0,100,buttonHeight );
+        v3.frame =CGRectMake(xCoord+540, 0,100,buttonHeight );
         UIGraphicsBeginImageContext(v2.frame.size);
         if (p == 0){
             [[UIImage imageNamed:@"Briefcase.png"] drawInRect:v2.bounds];
@@ -207,6 +218,7 @@
                 }
             }
         }
+        
         [lb1 setNumberOfLines:0];
         [lb1 sizeToFit];
         [lb2 setNumberOfLines:0];
@@ -222,13 +234,24 @@
         [[UIImage imageNamed:@"image.png"] drawInRect:self.view.bounds];
         img = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
+        
         v2.contentMode = UIViewContentModeScaleAspectFit;
         v2.backgroundColor = [UIColor colorWithPatternImage:img];
-        
+        UIGraphicsBeginImageContext(v3.frame.size);
+        if (e == 0){
+            [[UIImage imageNamed:@"cancelButton.png"] drawInRect:v3.bounds];
+        }else{
+            [[UIImage imageNamed:@"acceptButton.png"] drawInRect:v3.bounds];
+        }
+        img2 = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        v3.contentMode = UIViewContentModeScaleAspectFit;
+        v3.backgroundColor = [UIColor colorWithPatternImage:img2];
         [v addSubview:lb1];
         [v addSubview:lb2];
         [v addSubview:lb3];
         [v addSubview:v2];
+        [v addSubview:v3];
         v.frame     = CGRectMake(xCoord, yCoord,buttonWidth,buttonHeight );
         if ([[self.celdas[i] fin] compare:hoy] == NSOrderedAscending) {
             v.backgroundColor = [UIColor colorWithRed:0.953 green:0.471 blue:0.443 alpha:.5];
@@ -241,10 +264,53 @@
             v.backgroundColor = [UIColor colorWithRed:0.553 green:0.776 blue:0.251 alpha:.5];
         }
         v.layer.cornerRadius = 15;
+        [v addTarget:self action:@selector(checkButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [v setTag:i];
         [self.scroll addSubview:v];
         
         yCoord += buttonHeight + buffer;
     }
+   
     [self.scroll setContentSize:CGSizeMake(640, yCoord)];
+}
+- (void)checkButtonTapped:(id)sender
+{
+    NSInteger t = [sender tag];
+    self.state = 1;
+    for (UIView *subview in self.scroll.subviews) {
+        if (subview.tag == t){
+            subview.alpha = 1;
+            self.infoCeldaOutlet.hidden = NO;
+            self.agregaOutlet.hidden = YES;
+        }
+        else{
+            if (subview != self.uvAgrega&& subview != self.uvDate&&subview!= self.infoCeldaOutlet.superview){
+                   subview.alpha = .5;
+               }
+        }
+    }
+    
+}
+-(IBAction)handleSingleTap:(UIGestureRecognizer*)sender
+{
+    if (self.state == 1){
+        self.state = 0;
+        for (UIView *subview in self.scroll.subviews) {
+            subview.alpha = 1;
+        }
+        
+    }
+    self.infoCeldaOutlet.hidden = YES;
+    self.agregaOutlet.hidden = NO;
+}
+- (IBAction)infoCelda:(id)sender {
+}
+- (IBAction)btnEstado:(id)sender {
+    self.estado = (self.estado+1)%2;
+    if (self.estado == 0){
+        [self.btnEstadoOutlet setImage:[UIImage imageNamed:@"cancelButton.png"] forState:UIControlStateNormal];
+    }else{
+        [self.btnEstadoOutlet setImage:[UIImage imageNamed:@"acceptButton.png"] forState:UIControlStateNormal];
+    }
 }
 @end

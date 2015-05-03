@@ -67,7 +67,7 @@
                                     <action selector="guardarplist:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5k8-9Z-a8b"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQQ-WW-Pr8">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQQ-WW-Pr8">
                                 <rect key="frame" x="11" y="85" width="640" height="258"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXN-YX-IsA">
@@ -222,8 +222,23 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHs-8i-qnw">
+                                                <rect key="frame" x="574" y="17" width="50" height="50"/>
+                                                <state key="normal" image="cancelButton.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnEstado:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Tel-ed-1Yr"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Estado" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60k-rY-Qxz">
+                                                <rect key="frame" x="574" y="0.0" width="50" height="21"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.40000000596046448" green="1" blue="0.40000000596046448" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.40000000596046448" green="1" blue="0.40000000596046448" alpha="0.63" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
@@ -235,14 +250,31 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R38-uC-po3">
+                                <rect key="frame" x="629" y="28" width="22" height="22"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="infoCelda:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="m2k-iY-sYs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0078431377187371254" green="0.63529413938522339" blue="0.82745105028152466" alpha="1" colorSpace="deviceRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="qtb-lk-0hH" appends="YES" id="xFG-NG-28P"/>
+                        </connections>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="agregaOutlet" destination="sfN-YY-mV0" id="KdC-qh-UGW"/>
+                        <outlet property="btnEstadoOutlet" destination="RHs-8i-qnw" id="hF0-N0-C6l"/>
                         <outlet property="btnprof" destination="hS3-W8-lz4" id="aC7-wg-jgf"/>
                         <outlet property="dtPicker" destination="Itn-1X-IEL" id="mnX-eF-Eat"/>
+                        <outlet property="infoCeldaOutlet" destination="R38-uC-po3" id="hhp-pJ-c5L"/>
                         <outlet property="lbFOut" destination="ySy-60-3i4" id="Tr7-a9-NuZ"/>
                         <outlet property="lbFechaIn" destination="aGV-mW-frU" id="YeD-Hr-GK6"/>
                         <outlet property="lbProfesion" destination="lJI-60-xLt" id="phM-dW-CeI"/>
@@ -256,6 +288,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="qtb-lk-0hH">
+                    <connections>
+                        <action selector="handleSingleTap:" destination="vXZ-lx-hvc" id="crU-iP-ky4"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="239.5" y="43.5"/>
         </scene>
@@ -263,6 +300,7 @@
     <resources>
         <image name="Briefcase.png" width="256" height="256"/>
         <image name="backgroundTitles.png" width="183" height="154"/>
+        <image name="cancelButton.png" width="256" height="256"/>
         <image name="christmas-date-icon.png" width="512" height="512"/>
         <image name="logotecno.png" width="555" height="160"/>
     </resources>

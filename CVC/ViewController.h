@@ -9,12 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIButton *infoCeldaOutlet;
 @property (strong, nonatomic) IBOutlet UIButton *btnprof;
+- (IBAction)infoCelda:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *agregaOutlet;
 @property (strong, nonatomic) IBOutlet UILabel *lbProfesion;
 - (IBAction)guardar:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *uvAgrega;
 - (IBAction)btnProfesion:(id)sender;
 - (IBAction)guardarplist:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *btnEstadoOutlet;
+- (IBAction)btnEstado:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *lbFechaIn;
 @property (strong, nonatomic) IBOutlet UILabel *lbFOut;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datepicker;
