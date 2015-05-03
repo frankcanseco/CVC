@@ -24,7 +24,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *tfMeta;
 @property (strong, nonatomic) IBOutlet UIView *uvDate;
 - (IBAction)cancelar:(id)sender;
-@property (strong, nonatomic) IBOutlet UITextField *tfObjetivo;
+@property (strong, nonatomic) IBOutlet UITextView *tfObjetivo;
 - (IBAction)mostrar:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextView *tvIndicador;
 - (IBAction)agregar:(id)sender;
