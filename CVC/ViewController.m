@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-@interface celda : NSObject
+@interface celda : NSObject <NSCoding>
 @property NSString* meta;
 @property NSString* objetivo;
 @property NSString* accion;
@@ -18,6 +18,29 @@
 @property NSInteger estado;
 @end
 @implementation celda
+-(void)encodeWithCoder:(NSCoder *)encoder{
+    [encoder encodeObject:self.meta forKey:@"meta"];
+    [encoder encodeObject:self.objetivo forKey:@"objetivo"];
+    [encoder encodeObject:self.accion forKey:@"accion"];
+    [encoder encodeObject:self.indicador forKey:@"indicador"];
+    [encoder encodeObject:self.inicio forKey:@"inicio"];
+    [encoder encodeObject:self.fin forKey:@"fin"];
+    [encoder encodeInteger:self.prof forKey:@"prof"];
+    [encoder encodeInteger:self.prof forKey:@"estado"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    self = [super init];
+        self.meta = [decoder decodeObjectForKey:@"meta"];
+        self.objetivo = [decoder decodeObjectForKey:@"objetivo"];
+        self.accion = [decoder decodeObjectForKey:@"accion"];
+        self.indicador = [decoder decodeObjectForKey:@"indicador"];
+        self.inicio= [decoder decodeObjectForKey:@"inicio"];
+        self.fin= [decoder decodeObjectForKey:@"fin"];
+        self.prof = [decoder decodeIntegerForKey:@"prof"];
+       self.estado = [decoder decodeIntegerForKey:@"estado"];
+    return self;
+}
 @end
 @interface ViewController ()
 @property (strong,nonatomic) NSDate *fechaIn;
@@ -29,6 +52,8 @@
 @property NSInteger state;
 @property NSInteger order;
 @property NSInteger estado;
+@property NSInteger celdaEscogida;
+@property NSInteger acomodo;
 @end
 @implementation ViewController
 - (NSUInteger)supportedInterfaceOrientations
@@ -37,11 +62,23 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIApplication *app = [UIApplication sharedApplication];
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(applicationWillTerminate:)
+     name:UIApplicationDidEnterBackgroundNotification object:app];
     self.uvAgrega.hidden = YES;
     self.uvDate.hidden = YES;
     self.celdas = [[NSMutableArray alloc] init];
     self.state = 0;
+    self.btnEliminar.hidden = YES;
     self.infoCeldaOutlet.hidden = YES;
+    self.acomodo=0;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"set"];
+    self.celdas = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
+    [self mostrar];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -66,8 +103,19 @@
     [self.scroll bringSubviewToFront:self.uvDate];
     self.uvAgrega.hidden = YES;
     self.uvDate.hidden = YES;
+    if (self.state == 1&&self.uvAgrega.isHidden){
+        self.state = 0;
+        for (UIView *subview in self.scroll.subviews) {
+            subview.alpha = 1;
+        };
+        
+    }
+    self.infoCeldaOutlet.hidden = YES;
+    self.agregaOutlet.hidden = NO;
+    self.btnEliminar.hidden = YES;
 }
 - (IBAction)guardar:(id)sender {
+    if (self.state==0){
     self.celdaAux =[[celda alloc]init];
     self.celdaAux.prof = self.profesion;
     self.celdaAux.inicio = self.fechaIn;
@@ -80,10 +128,43 @@
     [self.celdas addObject:self.celdaAux];
     self.uvAgrega.hidden = YES;
     self.uvDate.hidden = YES;
-    [self acomodarPorFecha];
+    }
+    else{
+            self.celdaAux =[[celda alloc]init];
+            self.celdaAux.prof = self.profesion;
+            self.celdaAux.inicio = self.fechaIn;
+            self.celdaAux.fin = self.fechaOut;
+            self.celdaAux.meta = self.tfMeta.text;
+            self.celdaAux.objetivo = self.tfObjetivo.text;
+            self.celdaAux.accion = self.tvAccion.text;
+            self.celdaAux.indicador = self.tvIndicador.text;
+            self.celdaAux.estado = self.estado;
+            self.celdas[self.celdaEscogida] =self.celdaAux;
+            self.uvAgrega.hidden = YES;
+            self.uvDate.hidden = YES;
+        if (self.state == 1&&self.uvAgrega.isHidden){
+            self.state = 0;
+            for (UIView *subview in self.scroll.subviews) {
+                subview.alpha = 1;
+            };
+            
+        }
+        self.infoCeldaOutlet.hidden = YES;
+        self.agregaOutlet.hidden = NO;
+        self.btnEliminar.hidden = YES;
+    }
+    
     [self mostrar];
 }
+- (void)applicationWillTerminate:(UIApplication *)app
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"set"];
+    [NSKeyedArchiver archiveRootObject:self.celdas toFile:appFile];
+}
 - (IBAction)agregar:(id)sender {
+    if (self.state==0){
     self.tfMeta.text = @"";
     self.tfObjetivo.text = @"";
     self.tvAccion.text = @"";
@@ -100,7 +181,9 @@
     [self.btnprof setImage:[UIImage imageNamed:@"Briefcase.png"] forState:UIControlStateNormal];
     [self.btnEstadoOutlet setImage:[UIImage imageNamed:@"cancelButton.png"] forState:UIControlStateNormal];
     self.uvAgrega.hidden = NO;
+    self.btnEliminar.hidden = YES;
     [self.scroll bringSubviewToFront:self.uvAgrega];
+    }
 }
 - (IBAction)guardarFecha:(id)sender {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -147,14 +230,32 @@
     }
 }
 
-- (IBAction)guardarplist:(id)sender {
-    
-}
--(void)acomodarPorFecha{
+-(void)acomodar{
+    if (self.acomodo==0){
     NSSortDescriptor *fechin = [[NSSortDescriptor alloc] initWithKey:@"inicio" ascending:YES];
     NSSortDescriptor *fechter = [[NSSortDescriptor alloc] initWithKey:@"fin" ascending:YES];
     
     [self.celdas sortUsingDescriptors:[NSArray arrayWithObjects:fechin, fechter, nil]];
+    }
+    if (self.acomodo==1){
+        NSSortDescriptor *prof = [[NSSortDescriptor alloc] initWithKey:@"prof" ascending:YES];
+        [self.celdas sortUsingDescriptors:[NSArray arrayWithObjects:prof, nil]];
+    }
+    if (self.acomodo==2){
+        NSSortDescriptor *estado = [[NSSortDescriptor alloc] initWithKey:@"estado" ascending:YES];
+        [self.celdas sortUsingDescriptors:[NSArray arrayWithObjects:estado, nil]];
+    }
+    if (self.acomodo==3){
+        NSSortDescriptor *fechin = [[NSSortDescriptor alloc] initWithKey:@"inicio" ascending:NO];
+        NSSortDescriptor *fechter = [[NSSortDescriptor alloc] initWithKey:@"fin" ascending:NO];
+        
+        [self.celdas sortUsingDescriptors:[NSArray arrayWithObjects:fechin, fechter, nil]];
+    }
+    if (self.acomodo==4){
+        NSSortDescriptor *meta = [[NSSortDescriptor alloc] initWithKey:@"meta" ascending:NO];
+        
+        [self.celdas sortUsingDescriptors:[NSArray arrayWithObjects:meta, nil]];
+    }
 }
 - (BOOL)isSameDay:(NSDate*)date1 otherDay:(NSDate*)date2 {
     NSCalendar* calendar = [NSCalendar currentCalendar];
@@ -168,6 +269,7 @@
     [comp1 year]  == [comp2 year];
 }
 - (void)mostrar{
+    [self acomodar];
     NSLocale *mxLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"es_MX"];
 
     NSDate* hoy = [NSDate date];
@@ -282,6 +384,8 @@
             subview.alpha = 1;
             self.infoCeldaOutlet.hidden = NO;
             self.agregaOutlet.hidden = YES;
+            self.celdaEscogida=t;
+            self.btnEliminar.hidden = NO;
         }
         else{
             if (subview != self.uvAgrega&& subview != self.uvDate&&subview!= self.infoCeldaOutlet.superview){
@@ -293,17 +397,60 @@
 }
 -(IBAction)handleSingleTap:(UIGestureRecognizer*)sender
 {
-    if (self.state == 1){
+    if (self.state == 1&&self.uvAgrega.isHidden){
         self.state = 0;
         for (UIView *subview in self.scroll.subviews) {
             subview.alpha = 1;
         }
+        [self cancelar:sender];
         
     }
     self.infoCeldaOutlet.hidden = YES;
     self.agregaOutlet.hidden = NO;
+    self.btnEliminar.hidden = YES;
 }
+ 
 - (IBAction)infoCelda:(id)sender {
+    
+    self.tfMeta.text = [self.celdas[self.celdaEscogida] meta];
+    self.tfObjetivo.text = [self.celdas[self.celdaEscogida] objetivo];
+    self.tvAccion.text = [self.celdas[self.celdaEscogida] accion];
+    self.tvIndicador.text = [self.celdas[self.celdaEscogida] indicador];
+    self.fechaIn =[self.celdas[self.celdaEscogida] inicio];
+    self.fechaOut =[self.celdas[self.celdaEscogida] fin];
+    self.profesion = [self.celdas[self.celdaEscogida] prof];
+    self.estado = [self.celdas[self.celdaEscogida] estado];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    self.lbFechaIn.text = [dateFormatter stringFromDate:[self.celdas[self.celdaEscogida] inicio]];
+    self.lbFOut.text =  [dateFormatter stringFromDate:[self.celdas[self.celdaEscogida] fin]];
+    if (self.profesion == 0){
+        [self.btnprof setImage:[UIImage imageNamed:@"Briefcase.png"] forState:UIControlStateNormal];
+        self.lbProfesion.text = @"Profesional";
+    }else{
+        if (self.profesion == 1){
+            [self.btnprof setImage:[UIImage imageNamed:@"oro.png"] forState:UIControlStateNormal];
+            self.lbProfesion.text = @"Economico";
+            
+        }else{
+            if (self.profesion == 2){
+                [self.btnprof setImage:[UIImage imageNamed:@"peronal.png"] forState:UIControlStateNormal];
+                self.lbProfesion.text = @"Personal";
+                
+            }else{
+                [self.btnprof setImage:[UIImage imageNamed:@"brain.png"] forState:UIControlStateNormal];
+                self.lbProfesion.text = @"Intelectual";
+            }
+        }
+    }
+    if (self.estado == 0){
+        [self.btnEstadoOutlet setImage:[UIImage imageNamed:@"cancelButton.png"] forState:UIControlStateNormal];
+    }else{
+        [self.btnEstadoOutlet setImage:[UIImage imageNamed:@"acceptButton.png"] forState:UIControlStateNormal];
+    }
+    self.uvAgrega.hidden = NO;
+    [self.scroll bringSubviewToFront:self.uvAgrega];
+    
 }
 - (IBAction)btnEstado:(id)sender {
     self.estado = (self.estado+1)%2;
@@ -312,5 +459,51 @@
     }else{
         [self.btnEstadoOutlet setImage:[UIImage imageNamed:@"acceptButton.png"] forState:UIControlStateNormal];
     }
+}
+- (IBAction)elimina:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alerta" message:@"Estas seguro que quieres eliminar este evento?" delegate:self cancelButtonTitle:@"Borrar" otherButtonTitles:@"Cancelar", nil];
+    [alert show];
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0){
+        [self.celdas removeObjectAtIndex:self.celdaEscogida];
+        [self mostrar];
+        if (self.state == 1&&self.uvAgrega.isHidden){
+            self.state = 0;
+            for (UIView *subview in self.scroll.subviews) {
+                subview.alpha = 1;
+            };
+            
+        }
+        self.infoCeldaOutlet.hidden = YES;
+        self.agregaOutlet.hidden = NO;
+        self.btnEliminar.hidden = YES;
+        self.uvAgrega.hidden = YES;
+        self.uvDate.hidden=YES;
+        
+    }
+}
+- (IBAction)acomodarFecha:(id)sender {
+    self.acomodo = 0;
+    [self mostrar];
+}
+- (IBAction)acomodarArea:(id)sender {
+    self.acomodo = 1;
+    [self mostrar];
+}
+
+- (IBAction)acomodarStatus:(id)sender {
+    self.acomodo = 2;
+    [self mostrar];
+}
+
+- (IBAction)acomodoFin:(id)sender {
+    self.acomodo = 3;
+    [self mostrar];
+}
+
+- (IBAction)acomodarAlfabeticamente:(id)sender {
+    self.acomodo = 4;
+    [self mostrar];
 }
 @end

@@ -9,7 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+- (IBAction)acomodarFecha:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *infoCeldaOutlet;
+- (IBAction)acomodarArea:(id)sender;
+- (IBAction)acomodarStatus:(id)sender;
+- (IBAction)acomodoFin:(id)sender;
+
+- (IBAction)acomodarAlfabeticamente:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *btnprof;
 - (IBAction)infoCelda:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *agregaOutlet;
@@ -17,20 +23,20 @@
 - (IBAction)guardar:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *uvAgrega;
 - (IBAction)btnProfesion:(id)sender;
-- (IBAction)guardarplist:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *btnEstadoOutlet;
 - (IBAction)btnEstado:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *lbFechaIn;
 @property (strong, nonatomic) IBOutlet UILabel *lbFOut;
-@property (strong, nonatomic) IBOutlet UIDatePicker *datepicker;
 - (IBAction)guardarFecha:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *btnEliminar;
+- (IBAction)elimina:(id)sender;
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 @property (strong, nonatomic) IBOutlet UIDatePicker *dtPicker;
 @property (strong, nonatomic) IBOutlet UITextField *tfMeta;
 @property (strong, nonatomic) IBOutlet UIView *uvDate;
 - (IBAction)cancelar:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextView *tfObjetivo;
-- (IBAction)mostrar:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UITextView *tvIndicador;
 - (IBAction)agregar:(id)sender;
 - (IBAction)endDate:(id)sender;

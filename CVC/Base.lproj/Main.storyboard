@@ -25,6 +25,9 @@
                                 <state key="normal" title="META" backgroundImage="backgroundTitles.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="acomodarAlfabeticamente:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iG1-HX-bXs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooz-x4-FQV">
                                 <rect key="frame" x="251" y="55" width="100" height="31"/>
@@ -32,6 +35,9 @@
                                 <state key="normal" title="AREA" backgroundImage="backgroundTitles.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="acomodarArea:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CSm-93-fuf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="he4-a6-lqM">
                                 <rect key="frame" x="351" y="55" width="100" height="31"/>
@@ -39,6 +45,9 @@
                                 <state key="normal" title="INICIO" backgroundImage="backgroundTitles.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="acomodarFecha:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5Xc-E1-tj0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kj-HV-5gk">
                                 <rect key="frame" x="451" y="55" width="100" height="30"/>
@@ -46,6 +55,9 @@
                                 <state key="normal" title="FIN" backgroundImage="backgroundTitles.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="acomodoFin:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gm5-0h-Ei1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfN-YY-mV0">
                                 <rect key="frame" x="629" y="28" width="22" height="22"/>
@@ -56,15 +68,6 @@
                                 </state>
                                 <connections>
                                     <action selector="agregar:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="u9k-AP-bVc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7eB-qf-KQ0">
-                                <rect key="frame" x="602" y="345" width="56" height="30"/>
-                                <state key="normal" title="Guardar">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="guardarplist:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5k8-9Z-a8b"/>
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQQ-WW-Pr8">
@@ -183,17 +186,14 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hba-1V-u5e">
-                                                <rect key="frame" x="574" y="101" width="56" height="30"/>
-                                                <state key="normal" title="Guardar">
-                                                    <color key="titleColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="guardar:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gxr-LO-0KI"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Indicador" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uva-pl-N8x">
                                                 <rect key="frame" x="461" y="3" width="71" height="21"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Estado" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60k-rY-Qxz">
+                                                <rect key="frame" x="574" y="0.0" width="50" height="21"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -231,14 +231,17 @@
                                                     <action selector="btnEstado:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Tel-ed-1Yr"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Estado" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60k-rY-Qxz">
-                                                <rect key="frame" x="574" y="0.0" width="50" height="21"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hba-1V-u5e">
+                                                <rect key="frame" x="574" y="94" width="56" height="30"/>
+                                                <state key="normal" title="Guardar">
+                                                    <color key="titleColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="guardar:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gxr-LO-0KI"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.40000000596046448" green="1" blue="0.40000000596046448" alpha="0.63" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.50196081399917603" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
@@ -249,6 +252,9 @@
                                 <state key="normal" title="STATUS" backgroundImage="backgroundTitles.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="acomodarStatus:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wwo-2n-8TN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R38-uC-po3">
                                 <rect key="frame" x="629" y="28" width="22" height="22"/>
@@ -258,6 +264,13 @@
                                 </state>
                                 <connections>
                                     <action selector="infoCelda:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="m2k-iY-sYs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5N-iJ-tlB">
+                                <rect key="frame" x="591" y="22" width="30" height="34"/>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="elimina:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CmG-OB-HYJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -271,6 +284,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="agregaOutlet" destination="sfN-YY-mV0" id="KdC-qh-UGW"/>
+                        <outlet property="btnEliminar" destination="d5N-iJ-tlB" id="YRs-r2-GCB"/>
                         <outlet property="btnEstadoOutlet" destination="RHs-8i-qnw" id="hF0-N0-C6l"/>
                         <outlet property="btnprof" destination="hS3-W8-lz4" id="aC7-wg-jgf"/>
                         <outlet property="dtPicker" destination="Itn-1X-IEL" id="mnX-eF-Eat"/>
