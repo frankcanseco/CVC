@@ -122,11 +122,6 @@
                                                 <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="89d-4z-W0B">
-                                                <rect key="frame" x="71" y="4" width="187" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hS3-W8-lz4">
                                                 <rect key="frame" x="64" y="87" width="47" height="45"/>
                                                 <state key="normal" title="Button" image="Briefcase.png">
@@ -240,6 +235,11 @@
                                                     <action selector="guardar:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gxr-LO-0KI"/>
                                                 </connections>
                                             </button>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="89d-4z-W0B">
+                                                <rect key="frame" x="71" y="4" width="187" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.50196081399917603" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
@@ -273,6 +273,66 @@
                                     <action selector="elimina:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CmG-OB-HYJ"/>
                                 </connections>
                             </button>
+                            <segmentedControl contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="scX-H9-mr1">
+                                <rect key="frame" x="294" y="345" width="123" height="29"/>
+                                <segments>
+                                    <segment title="Vista 1"/>
+                                    <segment title="Vista 2"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="vistaSeg:" destination="vXZ-lx-hvc" eventType="valueChanged" id="0rZ-q6-BTy"/>
+                                </connections>
+                            </segmentedControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PVC.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cye-9F-v1B">
+                                <rect key="frame" x="274" y="-6" width="143" height="64"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sej-MR-KMj">
+                                <rect key="frame" x="613" y="343" width="38" height="32"/>
+                                <state key="normal" image="piechartbutton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="chart:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Jpz-wK-qK4"/>
+                                    <segue destination="2ll-Qh-cCZ" kind="presentation" id="Bev-vJ-SGb"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hdm-Yh-ric">
+                                <rect key="frame" x="11" y="55" width="640" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeL-Q0-Jbj">
+                                        <rect key="frame" x="200" y="-1" width="220" height="31"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="ACCION" backgroundImage="backgroundTitles.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="acomodarAlfabeticamente:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tgu-4o-tSc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3CU-Y4-dOd">
+                                        <rect key="frame" x="420" y="-1" width="220" height="31"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="INDICADOR" backgroundImage="backgroundTitles.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="acomodarAlfabeticamente:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lVK-ib-7n2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43k-dr-BG6">
+                                        <rect key="frame" x="0.0" y="-1" width="200" height="31"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="DESCRIPCION" backgroundImage="backgroundTitles.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="acomodarAlfabeticamente:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="GrK-Ft-iPA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0078431377187371254" green="0.63529413938522339" blue="0.82745105028152466" alpha="1" colorSpace="deviceRGB"/>
                         <gestureRecognizers/>
@@ -299,6 +359,7 @@
                         <outlet property="tvIndicador" destination="PLt-zS-vLE" id="HBa-A0-WJ5"/>
                         <outlet property="uvAgrega" destination="IRJ-jZ-dnT" id="BFU-K1-0Nq"/>
                         <outlet property="uvDate" destination="dXN-YX-IsA" id="qYC-tM-QJ8"/>
+                        <outlet property="viewVista2" destination="Hdm-Yh-ric" id="1Wf-oP-yZt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -308,14 +369,66 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="239.5" y="43.5"/>
+            <point key="canvasLocation" x="243.5" y="59.5"/>
+        </scene>
+        <!--Chart View Controller-->
+        <scene sceneID="dcv-na-UHZ">
+            <objects>
+                <viewController id="2ll-Qh-cCZ" customClass="ChartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bBQ-KM-aUM"/>
+                        <viewControllerLayoutGuide type="bottom" id="6oZ-Cp-HW9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Of-QC-Min">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arbol_ind.png" translatesAutoresizingMaskIntoConstraints="NO" id="E0H-iu-gQm">
+                                <rect key="frame" x="53" y="83" width="156" height="249"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logotecno.png" translatesAutoresizingMaskIntoConstraints="NO" id="rUk-ze-hTl">
+                                <rect key="frame" x="7" y="-1" width="161" height="50"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PVC.png" translatesAutoresizingMaskIntoConstraints="NO" id="ASr-SL-Wr8">
+                                <rect key="frame" x="254" y="-1" width="159" height="84"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="47m-3f-Ikg" customClass="DLPieChart">
+                                <rect key="frame" x="223" y="126" width="398" height="188"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ett-dS-yep">
+                                <rect key="frame" x="-6" y="298" width="92" height="84"/>
+                                <state key="normal" image="backButton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="2ll-Qh-cCZ" eventType="touchUpInside" id="ftQ-DP-PYy"/>
+                                    <segue destination="t5e-rs-yAt" kind="unwind" unwindAction="unwindToOriginalViewControllerSegue:" id="bSW-kz-0el"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0078431377190000002" green="0.63529413940000001" blue="0.82745105029999999" alpha="1" colorSpace="deviceRGB"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="pieChartView" destination="47m-3f-Ikg" id="XUC-Ob-6GC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AGd-c7-S2J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="t5e-rs-yAt" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1124.5" y="59.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="Briefcase.png" width="256" height="256"/>
+        <image name="PVC.png" width="423" height="277"/>
+        <image name="arbol_ind.png" width="527" height="614"/>
+        <image name="backButton.png" width="320" height="320"/>
         <image name="backgroundTitles.png" width="183" height="154"/>
         <image name="cancelButton.png" width="256" height="256"/>
         <image name="christmas-date-icon.png" width="512" height="512"/>
         <image name="logotecno.png" width="555" height="160"/>
+        <image name="piechartbutton.png" width="256" height="256"/>
     </resources>
 </document>

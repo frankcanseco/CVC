@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIView *viewVista2;
 - (IBAction)acomodarFecha:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *infoCeldaOutlet;
 - (IBAction)acomodarArea:(id)sender;
 - (IBAction)acomodarStatus:(id)sender;
 - (IBAction)acomodoFin:(id)sender;
+- (IBAction)vistaSeg:(id)sender;
+
+- (IBAction)chart:(id)sender;
 
 - (IBAction)acomodarAlfabeticamente:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *btnprof;

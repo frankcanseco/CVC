@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ChartViewController.h"
 @interface celda : NSObject <NSCoding>
 @property NSString* meta;
 @property NSString* objetivo;
@@ -15,7 +16,7 @@
 @property NSDate* inicio;
 @property NSDate* fin;
 @property NSInteger prof;
-@property NSInteger estado;
+@property NSInteger est;
 @end
 @implementation celda
 -(void)encodeWithCoder:(NSCoder *)encoder{
@@ -26,7 +27,7 @@
     [encoder encodeObject:self.inicio forKey:@"inicio"];
     [encoder encodeObject:self.fin forKey:@"fin"];
     [encoder encodeInteger:self.prof forKey:@"prof"];
-    [encoder encodeInteger:self.prof forKey:@"estado"];
+    [encoder encodeInteger:self.est forKey:@"est"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -38,7 +39,7 @@
         self.inicio= [decoder decodeObjectForKey:@"inicio"];
         self.fin= [decoder decodeObjectForKey:@"fin"];
         self.prof = [decoder decodeIntegerForKey:@"prof"];
-       self.estado = [decoder decodeIntegerForKey:@"estado"];
+       self.est = [decoder decodeIntegerForKey:@"est"];
     return self;
 }
 @end
@@ -54,6 +55,7 @@
 @property NSInteger estado;
 @property NSInteger celdaEscogida;
 @property NSInteger acomodo;
+@property NSInteger vista;
 @end
 @implementation ViewController
 - (NSUInteger)supportedInterfaceOrientations
@@ -62,6 +64,9 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.vista = 0;
+    self.viewVista2.hidden = YES;
+    
     UIApplication *app = [UIApplication sharedApplication];
     [[NSNotificationCenter defaultCenter]
      addObserver:self
@@ -78,10 +83,42 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"set"];
     self.celdas = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
+    if (self.celdas == nil){
+        self.celdas = [[NSMutableArray alloc] init];
+    }
     [self mostrar];
     // Do any additional setup after loading the view, typically from a nib.
 }
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    ChartViewController *viewControllerChart =[segue destinationViewController];
+    NSInteger a,b,c,d,e;
+    a=b=c=d=0;
+    for (int i = 0; i < self.celdas.count ; i++){
+        e = [self.celdas[i] prof];
+        if (e==0){
+            a++;
+        }
+        else{
+            if (e==1){
+                b++;
+            }
+            else{
+                if (e==2){
+                    c++;
+                }
+                else{
+                    d++;
+                }
+            }
+        }
+    }
+    viewControllerChart.profe = [NSNumber numberWithInteger:a];
+    viewControllerChart.eco = [NSNumber numberWithInteger:b];
+    viewControllerChart.pers = [NSNumber numberWithInteger:c];
+    viewControllerChart.intel = [NSNumber numberWithInteger:d];
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -124,7 +161,7 @@
     self.celdaAux.objetivo = self.tfObjetivo.text;
     self.celdaAux.accion = self.tvAccion.text;
     self.celdaAux.indicador = self.tvIndicador.text;
-    self.celdaAux.estado = self.estado;
+    self.celdaAux.est = self.estado;
     [self.celdas addObject:self.celdaAux];
     self.uvAgrega.hidden = YES;
     self.uvDate.hidden = YES;
@@ -138,7 +175,7 @@
             self.celdaAux.objetivo = self.tfObjetivo.text;
             self.celdaAux.accion = self.tvAccion.text;
             self.celdaAux.indicador = self.tvIndicador.text;
-            self.celdaAux.estado = self.estado;
+            self.celdaAux.est = self.estado;
             self.celdas[self.celdaEscogida] =self.celdaAux;
             self.uvAgrega.hidden = YES;
             self.uvDate.hidden = YES;
@@ -153,7 +190,6 @@
         self.agregaOutlet.hidden = NO;
         self.btnEliminar.hidden = YES;
     }
-    
     [self mostrar];
 }
 - (void)applicationWillTerminate:(UIApplication *)app
@@ -242,7 +278,7 @@
         [self.celdas sortUsingDescriptors:[NSArray arrayWithObjects:prof, nil]];
     }
     if (self.acomodo==2){
-        NSSortDescriptor *estado = [[NSSortDescriptor alloc] initWithKey:@"estado" ascending:YES];
+        NSSortDescriptor *estado = [[NSSortDescriptor alloc] initWithKey:@"est" ascending:YES];
         [self.celdas sortUsingDescriptors:[NSArray arrayWithObjects:estado, nil]];
     }
     if (self.acomodo==3){
@@ -252,7 +288,7 @@
         [self.celdas sortUsingDescriptors:[NSArray arrayWithObjects:fechin, fechter, nil]];
     }
     if (self.acomodo==4){
-        NSSortDescriptor *meta = [[NSSortDescriptor alloc] initWithKey:@"meta" ascending:NO];
+        NSSortDescriptor *meta = [[NSSortDescriptor alloc] initWithKey:@"meta" ascending:YES];
         
         [self.celdas sortUsingDescriptors:[NSArray arrayWithObjects:meta, nil]];
     }
@@ -286,10 +322,12 @@
     int buttonWidth=640;
     int buttonHeight=70;
     int buffer = 3;
+    if (self.vista == 0){
+        self.viewVista2.hidden=YES;
     for (i = 0; i < self.celdas.count; i++)
     {
         NSInteger p =[self.celdas[i] prof];
-        NSInteger e = [self.celdas[i] estado];
+        NSInteger e = [self.celdas[i] est];
         UIButton *v = [[UIButton alloc]init];
         UILabel *lb1 = [[UILabel alloc]init];
         UILabel *lb2 = [[UILabel alloc]init];
@@ -302,8 +340,8 @@
         lb1.text = [self.celdas[i] meta];
         lb2.text = [dateFormatter stringFromDate:[self.celdas[i] inicio]];
         lb3.text = [dateFormatter stringFromDate:[self.celdas[i] fin]];
-        v2.frame =CGRectMake(xCoord+240, 0,100,buttonHeight );
-        v3.frame =CGRectMake(xCoord+540, 0,100,buttonHeight );
+        v2.frame =CGRectMake(xCoord+240+25, 0+10,50,50 );
+        v3.frame =CGRectMake(xCoord+540+25, 0+10,50,50 );
         UIGraphicsBeginImageContext(v2.frame.size);
         if (p == 0){
             [[UIImage imageNamed:@"Briefcase.png"] drawInRect:v2.bounds];
@@ -372,7 +410,54 @@
         
         yCoord += buttonHeight + buffer;
     }
-   
+    }
+    else{
+        self.viewVista2.hidden=NO;
+
+        for (i = 0; i < self.celdas.count; i++)
+        {
+            UILabel *lb1 = [[UILabel alloc]init];
+            UILabel *lb2 = [[UILabel alloc]init];
+            UILabel *lb3 = [[UILabel alloc]init];
+            UIButton *v = [[UIButton alloc]init];
+            lb1.text = [self.celdas[i] objetivo];
+            lb2.text = [self.celdas[i] accion];
+            lb3.text = [self.celdas[i] indicador];
+            
+            [lb1 setNumberOfLines:0];
+            [lb1 sizeToFit];
+            [lb2 setNumberOfLines:0];
+            [lb2 sizeToFit];
+            [lb3 setNumberOfLines:0];
+            [lb3 sizeToFit];
+            lb1.frame =CGRectMake(xCoord, 0,200,buttonHeight );
+            lb2.frame =CGRectMake(xCoord+200, 0,220,buttonHeight );
+            lb3.frame =CGRectMake(xCoord+420, 0,220,buttonHeight );
+            lb1.textAlignment = NSTextAlignmentCenter;
+            lb2.textAlignment = NSTextAlignmentCenter;
+            lb3.textAlignment = NSTextAlignmentCenter;
+            [v addSubview:lb1];
+            [v addSubview:lb2];
+            [v addSubview:lb3];
+            v.frame     = CGRectMake(xCoord, yCoord,buttonWidth,buttonHeight );
+            if ([[self.celdas[i] fin] compare:hoy] == NSOrderedAscending) {
+                v.backgroundColor = [UIColor colorWithRed:0.953 green:0.471 blue:0.443 alpha:.5];
+            } else if ([[self.celdas[i] inicio] compare:hoy] == NSOrderedDescending) {
+                v.backgroundColor =[UIColor colorWithRed:.8 green:.8 blue:0.263 alpha:.5];
+                
+            } else {
+                v.backgroundColor = [UIColor colorWithRed:0.553 green:0.776 blue:0.251 alpha:.5];        }
+            if ([self isSameDay:hoy otherDay:[self.celdas[i] fin]]){
+                v.backgroundColor = [UIColor colorWithRed:0.553 green:0.776 blue:0.251 alpha:.5];
+            }
+            v.layer.cornerRadius = 15;
+            [v addTarget:self action:@selector(checkButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+            [v setTag:i];
+            [self.scroll addSubview:v];
+            
+            yCoord += buttonHeight + buffer;
+        }
+    }
     [self.scroll setContentSize:CGSizeMake(640, yCoord)];
 }
 - (void)checkButtonTapped:(id)sender
@@ -408,6 +493,7 @@
     self.infoCeldaOutlet.hidden = YES;
     self.agregaOutlet.hidden = NO;
     self.btnEliminar.hidden = YES;
+    [self.view endEditing:YES];
 }
  
 - (IBAction)infoCelda:(id)sender {
@@ -419,7 +505,7 @@
     self.fechaIn =[self.celdas[self.celdaEscogida] inicio];
     self.fechaOut =[self.celdas[self.celdaEscogida] fin];
     self.profesion = [self.celdas[self.celdaEscogida] prof];
-    self.estado = [self.celdas[self.celdaEscogida] estado];
+    self.estado = [self.celdas[self.celdaEscogida] est];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterShortStyle];
     self.lbFechaIn.text = [dateFormatter stringFromDate:[self.celdas[self.celdaEscogida] inicio]];
@@ -500,6 +586,14 @@
 - (IBAction)acomodoFin:(id)sender {
     self.acomodo = 3;
     [self mostrar];
+}
+
+- (IBAction)vistaSeg:(id)sender {
+    self.vista = (self.vista +1 )%2;
+    [self mostrar];
+}
+
+- (IBAction)chart:(id)sender {
 }
 
 - (IBAction)acomodarAlfabeticamente:(id)sender {
