@@ -32,7 +32,6 @@
 		F09B360C1AC3D4D7006FF451 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = F09B360B1AC3D4D7006FF451 /* checkmark.png */; };
 		F09B360E1AC3D532006FF451 /* Red_X.png in Resources */ = {isa = PBXBuildFile; fileRef = F09B360D1AC3D532006FF451 /* Red_X.png */; };
 		F09B36111AC3D629006FF451 /* Celda.m in Sources */ = {isa = PBXBuildFile; fileRef = F09B36101AC3D629006FF451 /* Celda.m */; };
-		F0EAFBAF1AF7E87E00DC55DD /* DLPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = F0EAFBAE1AF7E87E00DC55DD /* DLPieChart.m */; };
 		F0EAFBB21AF7E95400DC55DD /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0EAFBB11AF7E95400DC55DD /* ChartViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -80,8 +79,6 @@
 		F09B360D1AC3D532006FF451 /* Red_X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Red_X.png; sourceTree = SOURCE_ROOT; };
 		F09B360F1AC3D629006FF451 /* Celda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Celda.h; sourceTree = "<group>"; };
 		F09B36101AC3D629006FF451 /* Celda.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Celda.m; sourceTree = "<group>"; };
-		F0EAFBAD1AF7E87E00DC55DD /* DLPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPieChart.h; sourceTree = "<group>"; };
-		F0EAFBAE1AF7E87E00DC55DD /* DLPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPieChart.m; sourceTree = "<group>"; };
 		F0EAFBB01AF7E95400DC55DD /* ChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartViewController.h; sourceTree = "<group>"; };
 		F0EAFBB11AF7E95400DC55DD /* ChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,7 +124,6 @@
 		F002F3BC1AC3A0FF000296A1 /* CVC */ = {
 			isa = PBXGroup;
 			children = (
-				F0EAFBAC1AF7E87E00DC55DD /* Pie Chart Library */,
 				F002F3C11AC3A0FF000296A1 /* AppDelegate.h */,
 				F002F3C21AC3A0FF000296A1 /* AppDelegate.m */,
 				F002F3C41AC3A0FF000296A1 /* ViewController.h */,
@@ -184,16 +180,6 @@
 				F002F3D81AC3A0FF000296A1 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F0EAFBAC1AF7E87E00DC55DD /* Pie Chart Library */ = {
-			isa = PBXGroup;
-			children = (
-				F0EAFBAD1AF7E87E00DC55DD /* DLPieChart.h */,
-				F0EAFBAE1AF7E87E00DC55DD /* DLPieChart.m */,
-			);
-			name = "Pie Chart Library";
-			path = "../../../../Downloads/piechart-master/Pie Chart Library";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,7 +303,6 @@
 				F0EAFBB21AF7E95400DC55DD /* ChartViewController.m in Sources */,
 				F002F3C31AC3A0FF000296A1 /* AppDelegate.m in Sources */,
 				F002F3C01AC3A0FF000296A1 /* main.m in Sources */,
-				F0EAFBAF1AF7E87E00DC55DD /* DLPieChart.m in Sources */,
 				F09B36111AC3D629006FF451 /* Celda.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
