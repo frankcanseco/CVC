@@ -33,7 +33,6 @@
 		F0EAFBA91AF7E32700DC55DD /* PVC.png in Resources */ = {isa = PBXBuildFile; fileRef = F0EAFBA81AF7E32700DC55DD /* PVC.png */; };
 		F0EAFBAF1AF7E87E00DC55DD /* DLPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = F0EAFBAE1AF7E87E00DC55DD /* DLPieChart.m */; };
 		F0EAFBB21AF7E95400DC55DD /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0EAFBB11AF7E95400DC55DD /* ChartViewController.m */; };
-		F0FB448F1AF59D6700DC96D7 /* celda.png in Resources */ = {isa = PBXBuildFile; fileRef = F0FB448E1AF59D6700DC96D7 /* celda.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +81,6 @@
 		F0EAFBAE1AF7E87E00DC55DD /* DLPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPieChart.m; sourceTree = "<group>"; };
 		F0EAFBB01AF7E95400DC55DD /* ChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartViewController.h; sourceTree = "<group>"; };
 		F0EAFBB11AF7E95400DC55DD /* ChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartViewController.m; sourceTree = "<group>"; };
-		F0FB448E1AF59D6700DC96D7 /* celda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = celda.png; path = ../../../celda.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +138,6 @@
 				F09B36101AC3D629006FF451 /* Celda.m */,
 				F02FDE5C1B03B42100E4C151 /* arbol_ind.png */,
 				F02FDE541B03B3ED00E4C151 /* piechartbutton.png */,
-				F0FB448E1AF59D6700DC96D7 /* celda.png */,
 				F02FDE581B03B40800E4C151 /* cancelButton.png */,
 				F02FDE521B03B3D200E4C151 /* brain.png */,
 				F09B360D1AC3D532006FF451 /* Red_X.png */,
@@ -284,7 +281,6 @@
 				F02FDE571B03B3FC00E4C151 /* backbutton.png in Resources */,
 				F002F3E41AC3A174000296A1 /* logotecno.png in Resources */,
 				F09B360A1AC3D2BB006FF451 /* christmas-date-icon.png in Resources */,
-				F0FB448F1AF59D6700DC96D7 /* celda.png in Resources */,
 				F002F3EA1AC3C78C000296A1 /* Briefcase.png in Resources */,
 				F02FDE5D1B03B42100E4C151 /* arbol_ind.png in Resources */,
 				F002F3EE1AC3C792000296A1 /* peronal.png in Resources */,
