@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIView *viewVista2;
+- (IBAction)descripcionSinAccion:(id)sender;
 - (IBAction)acomodarFecha:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *infoCeldaOutlet;
 - (IBAction)acomodarArea:(id)sender;

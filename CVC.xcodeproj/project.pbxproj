@@ -19,20 +19,20 @@
 		F002F3EA1AC3C78C000296A1 /* Briefcase.png in Resources */ = {isa = PBXBuildFile; fileRef = F002F3E81AC3C78C000296A1 /* Briefcase.png */; };
 		F002F3ED1AC3C792000296A1 /* oro.png in Resources */ = {isa = PBXBuildFile; fileRef = F002F3EB1AC3C792000296A1 /* oro.png */; };
 		F002F3EE1AC3C792000296A1 /* peronal.png in Resources */ = {isa = PBXBuildFile; fileRef = F002F3EC1AC3C792000296A1 /* peronal.png */; };
+		F02FDE531B03B3D200E4C151 /* brain.png in Resources */ = {isa = PBXBuildFile; fileRef = F02FDE521B03B3D200E4C151 /* brain.png */; };
+		F02FDE551B03B3ED00E4C151 /* piechartbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = F02FDE541B03B3ED00E4C151 /* piechartbutton.png */; };
+		F02FDE571B03B3FC00E4C151 /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = F02FDE561B03B3FC00E4C151 /* backbutton.png */; };
+		F02FDE591B03B40800E4C151 /* cancelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F02FDE581B03B40800E4C151 /* cancelButton.png */; };
+		F02FDE5B1B03B41200E4C151 /* acceptButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F02FDE5A1B03B41200E4C151 /* acceptButton.png */; };
+		F02FDE5D1B03B42100E4C151 /* arbol_ind.png in Resources */ = {isa = PBXBuildFile; fileRef = F02FDE5C1B03B42100E4C151 /* arbol_ind.png */; };
 		F088F0501ADFB32500D5BE2E /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = F088F04F1ADFB32500D5BE2E /* Property List.plist */; };
-		F095C6B81AF8540000688158 /* piechartbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = F095C6B71AF8540000688158 /* piechartbutton.png */; };
-		F095C6BA1AF8548A00688158 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F095C6B91AF8548A00688158 /* backButton.png */; };
 		F09B360A1AC3D2BB006FF451 /* christmas-date-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F09B36091AC3D2BB006FF451 /* christmas-date-icon.png */; };
 		F09B360C1AC3D4D7006FF451 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = F09B360B1AC3D4D7006FF451 /* checkmark.png */; };
 		F09B360E1AC3D532006FF451 /* Red_X.png in Resources */ = {isa = PBXBuildFile; fileRef = F09B360D1AC3D532006FF451 /* Red_X.png */; };
 		F09B36111AC3D629006FF451 /* Celda.m in Sources */ = {isa = PBXBuildFile; fileRef = F09B36101AC3D629006FF451 /* Celda.m */; };
-		F0B09C7F1AF6B71000AFB028 /* acceptButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B09C7E1AF6B71000AFB028 /* acceptButton.png */; };
-		F0B09C811AF6B71B00AFB028 /* cancelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B09C801AF6B71B00AFB028 /* cancelButton.png */; };
 		F0EAFBA91AF7E32700DC55DD /* PVC.png in Resources */ = {isa = PBXBuildFile; fileRef = F0EAFBA81AF7E32700DC55DD /* PVC.png */; };
-		F0EAFBAB1AF7E55500DC55DD /* arbol_ind.png in Resources */ = {isa = PBXBuildFile; fileRef = F0EAFBAA1AF7E55500DC55DD /* arbol_ind.png */; };
 		F0EAFBAF1AF7E87E00DC55DD /* DLPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = F0EAFBAE1AF7E87E00DC55DD /* DLPieChart.m */; };
 		F0EAFBB21AF7E95400DC55DD /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0EAFBB11AF7E95400DC55DD /* ChartViewController.m */; };
-		F0FB448B1AF5994B00DC96D7 /* brain.png in Resources */ = {isa = PBXBuildFile; fileRef = F0FB448A1AF5994B00DC96D7 /* brain.png */; };
 		F0FB448F1AF59D6700DC96D7 /* celda.png in Resources */ = {isa = PBXBuildFile; fileRef = F0FB448E1AF59D6700DC96D7 /* celda.png */; };
 /* End PBXBuildFile section */
 
@@ -65,23 +65,23 @@
 		F002F3E81AC3C78C000296A1 /* Briefcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Briefcase.png; sourceTree = SOURCE_ROOT; };
 		F002F3EB1AC3C792000296A1 /* oro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oro.png; sourceTree = SOURCE_ROOT; };
 		F002F3EC1AC3C792000296A1 /* peronal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = peronal.png; sourceTree = SOURCE_ROOT; };
+		F02FDE521B03B3D200E4C151 /* brain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain.png; sourceTree = "<group>"; };
+		F02FDE541B03B3ED00E4C151 /* piechartbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piechartbutton.png; sourceTree = "<group>"; };
+		F02FDE561B03B3FC00E4C151 /* backbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbutton.png; sourceTree = "<group>"; };
+		F02FDE581B03B40800E4C151 /* cancelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelButton.png; sourceTree = "<group>"; };
+		F02FDE5A1B03B41200E4C151 /* acceptButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = acceptButton.png; sourceTree = "<group>"; };
+		F02FDE5C1B03B42100E4C151 /* arbol_ind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arbol_ind.png; sourceTree = "<group>"; };
 		F088F04F1ADFB32500D5BE2E /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
-		F095C6B71AF8540000688158 /* piechartbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = piechartbutton.png; path = ../../../piechartbutton.png; sourceTree = "<group>"; };
-		F095C6B91AF8548A00688158 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backButton.png; path = ../../../backButton.png; sourceTree = "<group>"; };
 		F09B36091AC3D2BB006FF451 /* christmas-date-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "christmas-date-icon.png"; sourceTree = SOURCE_ROOT; };
 		F09B360B1AC3D4D7006FF451 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = SOURCE_ROOT; };
 		F09B360D1AC3D532006FF451 /* Red_X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Red_X.png; sourceTree = SOURCE_ROOT; };
 		F09B360F1AC3D629006FF451 /* Celda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Celda.h; sourceTree = "<group>"; };
 		F09B36101AC3D629006FF451 /* Celda.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Celda.m; sourceTree = "<group>"; };
-		F0B09C7E1AF6B71000AFB028 /* acceptButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = acceptButton.png; path = ../../../acceptButton.png; sourceTree = "<group>"; };
-		F0B09C801AF6B71B00AFB028 /* cancelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cancelButton.png; path = ../../../cancelButton.png; sourceTree = "<group>"; };
 		F0EAFBA81AF7E32700DC55DD /* PVC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PVC.png; path = ../../../ImagenesApp/PVC.png; sourceTree = "<group>"; };
-		F0EAFBAA1AF7E55500DC55DD /* arbol_ind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arbol_ind.png; path = ../../../arbol_ind.png; sourceTree = "<group>"; };
 		F0EAFBAD1AF7E87E00DC55DD /* DLPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPieChart.h; sourceTree = "<group>"; };
 		F0EAFBAE1AF7E87E00DC55DD /* DLPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPieChart.m; sourceTree = "<group>"; };
 		F0EAFBB01AF7E95400DC55DD /* ChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartViewController.h; sourceTree = "<group>"; };
 		F0EAFBB11AF7E95400DC55DD /* ChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartViewController.m; sourceTree = "<group>"; };
-		F0FB448A1AF5994B00DC96D7 /* brain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = brain.png; path = ../../../brain.png; sourceTree = "<group>"; };
 		F0FB448E1AF59D6700DC96D7 /* celda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = celda.png; path = ../../../celda.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,7 +106,6 @@
 		F002F3B11AC3A0FF000296A1 = {
 			isa = PBXGroup;
 			children = (
-				F0EAFBAC1AF7E87E00DC55DD /* Pie Chart Library */,
 				F002F3BC1AC3A0FF000296A1 /* CVC */,
 				F002F3D61AC3A0FF000296A1 /* CVCTests */,
 				F002F3BB1AC3A0FF000296A1 /* Products */,
@@ -125,27 +124,28 @@
 		F002F3BC1AC3A0FF000296A1 /* CVC */ = {
 			isa = PBXGroup;
 			children = (
+				F0EAFBAC1AF7E87E00DC55DD /* Pie Chart Library */,
 				F002F3C11AC3A0FF000296A1 /* AppDelegate.h */,
 				F002F3C21AC3A0FF000296A1 /* AppDelegate.m */,
 				F002F3C41AC3A0FF000296A1 /* ViewController.h */,
 				F002F3C51AC3A0FF000296A1 /* ViewController.m */,
 				F002F3C71AC3A0FF000296A1 /* Main.storyboard */,
-				F095C6B91AF8548A00688158 /* backButton.png */,
-				F095C6B71AF8540000688158 /* piechartbutton.png */,
 				F0EAFBB01AF7E95400DC55DD /* ChartViewController.h */,
+				F02FDE561B03B3FC00E4C151 /* backbutton.png */,
 				F0EAFBB11AF7E95400DC55DD /* ChartViewController.m */,
-				F0EAFBAA1AF7E55500DC55DD /* arbol_ind.png */,
 				F0EAFBA81AF7E32700DC55DD /* PVC.png */,
-				F0B09C801AF6B71B00AFB028 /* cancelButton.png */,
-				F0B09C7E1AF6B71000AFB028 /* acceptButton.png */,
+				F02FDE5A1B03B41200E4C151 /* acceptButton.png */,
 				F088F04F1ADFB32500D5BE2E /* Property List.plist */,
 				F09B360F1AC3D629006FF451 /* Celda.h */,
 				F09B36101AC3D629006FF451 /* Celda.m */,
+				F02FDE5C1B03B42100E4C151 /* arbol_ind.png */,
+				F02FDE541B03B3ED00E4C151 /* piechartbutton.png */,
 				F0FB448E1AF59D6700DC96D7 /* celda.png */,
+				F02FDE581B03B40800E4C151 /* cancelButton.png */,
+				F02FDE521B03B3D200E4C151 /* brain.png */,
 				F09B360D1AC3D532006FF451 /* Red_X.png */,
 				F09B360B1AC3D4D7006FF451 /* checkmark.png */,
 				F09B36091AC3D2BB006FF451 /* christmas-date-icon.png */,
-				F0FB448A1AF5994B00DC96D7 /* brain.png */,
 				F002F3EB1AC3C792000296A1 /* oro.png */,
 				F002F3EC1AC3C792000296A1 /* peronal.png */,
 				F002F3E81AC3C78C000296A1 /* Briefcase.png */,
@@ -191,7 +191,7 @@
 				F0EAFBAE1AF7E87E00DC55DD /* DLPieChart.m */,
 			);
 			name = "Pie Chart Library";
-			path = "../../../Downloads/piechart-master/Pie Chart Library";
+			path = "../../../../Downloads/piechart-master/Pie Chart Library";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,24 +276,24 @@
 			files = (
 				F088F0501ADFB32500D5BE2E /* Property List.plist in Resources */,
 				F002F3C91AC3A0FF000296A1 /* Main.storyboard in Resources */,
-				F095C6BA1AF8548A00688158 /* backButton.png in Resources */,
 				F002F3CE1AC3A0FF000296A1 /* LaunchScreen.xib in Resources */,
 				F09B360E1AC3D532006FF451 /* Red_X.png in Resources */,
 				F002F3ED1AC3C792000296A1 /* oro.png in Resources */,
 				F0EAFBA91AF7E32700DC55DD /* PVC.png in Resources */,
-				F0B09C811AF6B71B00AFB028 /* cancelButton.png in Resources */,
+				F02FDE531B03B3D200E4C151 /* brain.png in Resources */,
+				F02FDE571B03B3FC00E4C151 /* backbutton.png in Resources */,
 				F002F3E41AC3A174000296A1 /* logotecno.png in Resources */,
 				F09B360A1AC3D2BB006FF451 /* christmas-date-icon.png in Resources */,
-				F095C6B81AF8540000688158 /* piechartbutton.png in Resources */,
 				F0FB448F1AF59D6700DC96D7 /* celda.png in Resources */,
-				F0EAFBAB1AF7E55500DC55DD /* arbol_ind.png in Resources */,
 				F002F3EA1AC3C78C000296A1 /* Briefcase.png in Resources */,
-				F0FB448B1AF5994B00DC96D7 /* brain.png in Resources */,
+				F02FDE5D1B03B42100E4C151 /* arbol_ind.png in Resources */,
 				F002F3EE1AC3C792000296A1 /* peronal.png in Resources */,
+				F02FDE5B1B03B41200E4C151 /* acceptButton.png in Resources */,
+				F02FDE551B03B3ED00E4C151 /* piechartbutton.png in Resources */,
 				F09B360C1AC3D4D7006FF451 /* checkmark.png in Resources */,
+				F02FDE591B03B40800E4C151 /* cancelButton.png in Resources */,
 				F002F3CB1AC3A0FF000296A1 /* Images.xcassets in Resources */,
 				F002F3E61AC3B6A0000296A1 /* backgroundTitles.png in Resources */,
-				F0B09C7F1AF6B71000AFB028 /* acceptButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

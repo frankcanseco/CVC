@@ -17,6 +17,7 @@
 @property NSDate* fin;
 @property NSInteger prof;
 @property NSInteger est;
+
 @end
 @implementation celda
 -(void)encodeWithCoder:(NSCoder *)encoder{
@@ -56,6 +57,7 @@
 @property NSInteger celdaEscogida;
 @property NSInteger acomodo;
 @property NSInteger vista;
+@property NSInteger yCoord;
 @end
 @implementation ViewController
 - (NSUInteger)supportedInterfaceOrientations
@@ -318,7 +320,7 @@
     [dateFormatter setLocale:mxLocale];
     NSUInteger i;
     int xCoord=0;
-    int yCoord=0;
+   self.yCoord=0;
     int buttonWidth=640;
     int buttonHeight=70;
     int buffer = 3;
@@ -392,7 +394,7 @@
         [v addSubview:lb3];
         [v addSubview:v2];
         [v addSubview:v3];
-        v.frame     = CGRectMake(xCoord, yCoord,buttonWidth,buttonHeight );
+        v.frame     = CGRectMake(xCoord,self. yCoord,buttonWidth,buttonHeight );
         if ([[self.celdas[i] fin] compare:hoy] == NSOrderedAscending) {
             v.backgroundColor = [UIColor colorWithRed:0.953 green:0.471 blue:0.443 alpha:.5];
         } else if ([[self.celdas[i] inicio] compare:hoy] == NSOrderedDescending) {
@@ -408,7 +410,7 @@
         [v setTag:i];
         [self.scroll addSubview:v];
         
-        yCoord += buttonHeight + buffer;
+        self.yCoord += buttonHeight + buffer;
     }
     }
     else{
@@ -439,7 +441,7 @@
             [v addSubview:lb1];
             [v addSubview:lb2];
             [v addSubview:lb3];
-            v.frame     = CGRectMake(xCoord, yCoord,buttonWidth,buttonHeight );
+            v.frame     = CGRectMake(xCoord, self.yCoord,buttonWidth,buttonHeight );
             if ([[self.celdas[i] fin] compare:hoy] == NSOrderedAscending) {
                 v.backgroundColor = [UIColor colorWithRed:0.953 green:0.471 blue:0.443 alpha:.5];
             } else if ([[self.celdas[i] inicio] compare:hoy] == NSOrderedDescending) {
@@ -455,10 +457,10 @@
             [v setTag:i];
             [self.scroll addSubview:v];
             
-            yCoord += buttonHeight + buffer;
+            self.yCoord += buttonHeight + buffer;
         }
     }
-    [self.scroll setContentSize:CGSizeMake(640, yCoord)];
+    [self.scroll setContentSize:CGSizeMake(640, self.yCoord)];
 }
 - (void)checkButtonTapped:(id)sender
 {
@@ -471,6 +473,17 @@
             self.agregaOutlet.hidden = YES;
             self.celdaEscogida=t;
             self.btnEliminar.hidden = NO;
+            CGPoint cgp;
+            NSInteger nsi;
+            nsi=subview.center.y-129;
+            if (nsi<0){
+                nsi = 0;
+            }
+            if (nsi>self.yCoord-258){
+                nsi = self.yCoord-258;
+            }
+            cgp.y = nsi;
+            [self.scroll setContentOffset:cgp animated:YES];
         }
         else{
             if (subview != self.uvAgrega&& subview != self.uvDate&&subview!= self.infoCeldaOutlet.superview){
@@ -497,7 +510,8 @@
 }
  
 - (IBAction)infoCelda:(id)sender {
-    
+    CGPoint cgp;
+    [self.scroll setContentOffset:cgp animated:YES];
     self.tfMeta.text = [self.celdas[self.celdaEscogida] meta];
     self.tfObjetivo.text = [self.celdas[self.celdaEscogida] objetivo];
     self.tvAccion.text = [self.celdas[self.celdaEscogida] accion];
@@ -569,6 +583,9 @@
         
     }
 }
+- (IBAction)descripcionSinAccion:(id)sender {
+}
+
 - (IBAction)acomodarFecha:(id)sender {
     self.acomodo = 0;
     [self mostrar];
