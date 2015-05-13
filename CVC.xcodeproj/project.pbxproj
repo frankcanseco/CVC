@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F002DC941B03EABE000E4DD0 /* logotecno.png in Resources */ = {isa = PBXBuildFile; fileRef = F002DC931B03EABE000E4DD0 /* logotecno.png */; };
 		F002DC961B03EACA000E4DD0 /* PVC.png in Resources */ = {isa = PBXBuildFile; fileRef = F002DC951B03EACA000E4DD0 /* PVC.png */; };
+		F002DC991B03EB64000E4DD0 /* DLPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = F002DC981B03EB64000E4DD0 /* DLPieChart.m */; };
 		F002F3C01AC3A0FF000296A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F002F3BF1AC3A0FF000296A1 /* main.m */; };
 		F002F3C31AC3A0FF000296A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F002F3C21AC3A0FF000296A1 /* AppDelegate.m */; };
 		F002F3C61AC3A0FF000296A1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F002F3C51AC3A0FF000296A1 /* ViewController.m */; };
@@ -48,6 +49,8 @@
 /* Begin PBXFileReference section */
 		F002DC931B03EABE000E4DD0 /* logotecno.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logotecno.png; path = CVC/logotecno.png; sourceTree = "<group>"; };
 		F002DC951B03EACA000E4DD0 /* PVC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PVC.png; path = CVC/PVC.png; sourceTree = "<group>"; };
+		F002DC971B03EB64000E4DD0 /* DLPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLPieChart.h; path = "Pie Chart Library/DLPieChart.h"; sourceTree = "<group>"; };
+		F002DC981B03EB64000E4DD0 /* DLPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLPieChart.m; path = "Pie Chart Library/DLPieChart.m"; sourceTree = "<group>"; };
 		F002F3BA1AC3A0FF000296A1 /* CVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F002F3BE1AC3A0FF000296A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F002F3BF1AC3A0FF000296A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -129,6 +132,8 @@
 				F002F3C21AC3A0FF000296A1 /* AppDelegate.m */,
 				F002F3C41AC3A0FF000296A1 /* ViewController.h */,
 				F002F3C51AC3A0FF000296A1 /* ViewController.m */,
+				F002DC971B03EB64000E4DD0 /* DLPieChart.h */,
+				F002DC981B03EB64000E4DD0 /* DLPieChart.m */,
 				F002F3C71AC3A0FF000296A1 /* Main.storyboard */,
 				F0EAFBB01AF7E95400DC55DD /* ChartViewController.h */,
 				F02FDE561B03B3FC00E4C151 /* backbutton.png */,
@@ -307,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F002DC991B03EB64000E4DD0 /* DLPieChart.m in Sources */,
 				F002F3C61AC3A0FF000296A1 /* ViewController.m in Sources */,
 				F0EAFBB21AF7E95400DC55DD /* ChartViewController.m in Sources */,
 				F002F3C31AC3A0FF000296A1 /* AppDelegate.m in Sources */,
